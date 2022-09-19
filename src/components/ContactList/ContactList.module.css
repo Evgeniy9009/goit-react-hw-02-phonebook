@@ -1,9 +1,9 @@
-li {
+.item {
     display: flex;
     align-items: center;
 }
 
-button {
+.btn {
 
     width: 60px;
     margin-left: 20px;
@@ -12,7 +12,7 @@ button {
     border-radius: 5px;
 }
 
-button:focus,
-button:hover {
+.btn:focus,
+.btn:hover {
     background-color: rgb(173, 206, 255);
 }
