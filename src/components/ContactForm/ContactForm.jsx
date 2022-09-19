@@ -6,7 +6,6 @@ import css from 'components/ContactForm/ContactForm.module.css'
 export default class ContactForm extends Component  {
 
     state = {
-        contacts: [],
         name: '',
         number: ''
     }
@@ -14,17 +13,17 @@ export default class ContactForm extends Component  {
     idName = nanoid()
     idNumber = nanoid()
 
-    addContact = (contact) => {
-        this.setState((prev) => {
-            const newContact = {
-                // id= nanoid(),
-                ...contact
-            }
-            return {
-                contacts: [...prev.contacts, newContact]
-            }
-        })
-    }
+    // addContact = (contact) => {
+    //     this.setState((prev) => {
+    //         const newContact = {
+    //             // id= nanoid(),
+    //             ...contact
+    //         }
+    //         return {
+    //             contacts: [...prev.contacts, newContact]
+    //         }
+    //     })
+    // }
 
     handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,8 +35,8 @@ export default class ContactForm extends Component  {
     handleSubmit = (e) => {
 
         e.preventDefault();
-        console.log(this.props)
         this.props.onSubmit({ ...this.state })
+                console.log(this.props)
         this.setState({
             name: '',
             number: ''

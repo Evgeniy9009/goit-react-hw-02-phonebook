@@ -1,4 +1,4 @@
-import ContactForm from "./ContactForm/ContactForm";
+import Contacts from "./Contacts/Contacts";
 
 export const App = () => {
   return (
@@ -12,8 +12,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <ContactForm />
-      {/* onSubmit={this.addContact} */}
+      <Contacts/>
     </div>
   );
 };
