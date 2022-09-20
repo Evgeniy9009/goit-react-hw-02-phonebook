@@ -42,7 +42,7 @@ export default class Contacts extends Component {
 
     isDuplicate({ name, number }) {
         const { contacts } = this.state
-        const res = contacts.find((item) => item.name === name || item.number === number)
+        const res = contacts.find((item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase() || item.number === number)
         return res
     }
 
