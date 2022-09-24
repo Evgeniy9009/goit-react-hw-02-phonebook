@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import ContactForm from 'components/ContactForm/ContactForm'
 import ContactList from 'components/ContactList/ContactList'
 import Filter from 'components/Filter/Filter'
@@ -14,6 +14,30 @@ export default class Contacts extends Component {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
   ],
         filter: ''
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount")
+        const contacts = JSON.parse(localStorage.getItem("contacts"))
+        if (contacts?.length) {
+            console.log(contacts)
+            this.setState({
+                contacts
+            })
+        }
+    } 
+    
+    componentDidUpdate(prevProps, prevState) {
+        console.log("componentDidUpdate")
+        const { contacts } = this.state
+        if (prevState.contacts !== contacts) {
+            localStorage.setItem("contacts", JSON.stringify(contacts))
+        }
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount")
+        // localStorage.removeItem('contacts')
     }
 
     addContact = (contact) => {
